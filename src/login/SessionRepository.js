@@ -1,9 +1,9 @@
-class SessionRepostiory {
+export default class SessionRepostiory {
   constructor(store) {
     this.store = store;
   }
   createSession(session) {
-    return new Session.Builder().createSession(session).build();
+    return this.store.setUserSession(session);
   }
   createEmptySession() {
     return new Session.Builder().build();

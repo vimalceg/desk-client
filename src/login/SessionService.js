@@ -1,14 +1,14 @@
-class SessionService {
-  constructor(store) {
-    this.sessionRepository = new SessionRepostiory(store);
+export default class SessionService {
+  constructor(sessionRepository) {
+    this.repo = sessionRepository;
   }
   createSession(session) {
-    return repo.createSession(session);
+    return this.repo.createSession(session);
   }
   createEmptySession() {
-    return repo.createEmptySession();
+    return this.repo.createEmptySession();
   }
   getSession() {
-    return repo.getSession();
+    return this.repo.getSession();
   }
 }

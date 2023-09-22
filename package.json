@@ -5,7 +5,7 @@
   "dependencies": {
     "@types/react": "^16.8 || ^17.0 || ^18.0",
     "@types/react-dom": "^16.8 || ^17.0 || ^18.0",
-    "@zohodesk/redux-modules": "^1.2.0",
+    "@zohodesk/redux-modules": "1.2.0-alpha.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": ">=0.59",

@@ -4,22 +4,19 @@ import { createStore, applyMiddleware } from 'redux';
 import reducer, { staticReducers } from './reducer';
 import logger from 'redux-logger';
 import Login from './Login';
-import { enhanceStoreWithAsyncReducers } from '@zohodesk/redux-modules';
+import * as a from '@zohodesk/redux-modules';
+import useLogin from './login-react-connect/useLogin';
+import { Provider } from 'react-redux';
 
+console.log(a);
 let store = createStore(reducer, applyMiddleware(logger));
-store = enhanceStoreWithAsyncReducers(store, staticReducers);
-
+store = a.enhanceStoreWithAsyncReducers(store, staticReducers);
+window.store = store;
 store.dispatch({ type: 'test' });
 
-// function urlChange(location, setUserSession) {
-//   if (location.pathname === '/redirect') {
-//     setUserSession(parseHash(location.hash));
-//     history.pushState({}, '', '/');
-//   }
-// }
-export default function App() {
-  let [userSession, setUserSession] = useState(null);
-
+function App1() {
+  let { session: userSession, action } = useLogin(null);
+  console.log('userSession', action);
   // useEffect(() => {
   //   urlChange(window.location, setUserSession);
   //   window.addEventListener('popstate', () =>
@@ -29,9 +26,16 @@ export default function App() {
 
   return (
     <div>
-      test
+      <div onClick={() => action.createSession({ test: 1 })}>test</div>
       {userSession === null && <Login />}
       {userSession != null && <div>Login</div>}
     </div>
+  );
+}
+export default function App() {
+  return (
+    <Provider store={store}>
+      <App1 />
+    </Provider>
   );
 }
