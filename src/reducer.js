@@ -7,7 +7,8 @@ function contact(state = {}, action) {
   return state;
 }
 
-export default combineReducers({
+export const staticReducers = {
   ticket,
   contact,
-});
+};
+export default combineReducers(staticReducers);

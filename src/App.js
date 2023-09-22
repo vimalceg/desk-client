@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import { createStore, applyMiddleware } from 'redux';
-import reducer from './reducer';
+import reducer, { staticReducers } from './reducer';
 import logger from 'redux-logger';
+import Login from './Login';
+import { enhanceStoreWithAsyncReducers } from '@zohodesk/redux-modules';
 
 let store = createStore(reducer, applyMiddleware(logger));
+store = enhanceStoreWithAsyncReducers(store, staticReducers);
+
 store.dispatch({ type: 'test' });
 
-function Hello({ name, i18n_hello }) {
-  return (
-    <div>
-      {i18n_hello},{name}
-    </div>
-  );
-}
-
+// function urlChange(location, setUserSession) {
+//   if (location.pathname === '/redirect') {
+//     setUserSession(parseHash(location.hash));
+//     history.pushState({}, '', '/');
+//   }
+// }
 export default function App() {
+  let [userSession, setUserSession] = useState(null);
+
+  // useEffect(() => {
+  //   urlChange(window.location, setUserSession);
+  //   window.addEventListener('popstate', () =>
+  //     urlChange(window.location, setUserSession)
+  //   );
+  // }, []);
+
   return (
     <div>
-      <a href="https://accounts.zoho.com/oauth/v2/auth?client_id=1000.HIKS114XIP3VGARP42QVMVVQYQGI2E&response_type=token&scope=AaaServer.profile.Read&redirect_uri=https://stackblitz-starters-kkw19h.stackblitz.io/redirect">
-        {' '}
-        Login
-      </a>
+      test
+      {userSession === null && <Login />}
+      {userSession != null && <div>Login</div>}
     </div>
   );
 }
