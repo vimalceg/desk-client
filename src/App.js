@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './style.css';
 import { createStore, applyMiddleware } from 'redux';
 import reducer, { staticReducers } from './reducer';
 import logger from 'redux-logger';
-import Login from './Login';
-import * as a from '@zohodesk/redux-modules';
-import useLogin from './login-react-connect/useLogin';
 import { Provider } from 'react-redux';
+import CounterContainer from './counter/controller/CounterContainer';
 
-console.log(a);
 let store = createStore(reducer, applyMiddleware(logger));
-store = a.enhanceStoreWithAsyncReducers(store, staticReducers);
 window.store = store;
-store.dispatch({ type: 'test' });
 
-function App1() {
-  let { session: userSession, action } = useLogin(null);
-  console.log('userSession', action);
-  // useEffect(() => {
-  //   urlChange(window.location, setUserSession);
-  //   window.addEventListener('popstate', () =>
-  //     urlChange(window.location, setUserSession)
-  //   );
-  // }, []);
-
-  return (
-    <div>
-      <div onClick={() => action.createSession({ test: 1 })}>test</div>
-      {userSession === null && <Login />}
-      {userSession != null && <div>Login</div>}
-    </div>
-  );
+function CounterApp() {
+  return <CounterContainer />;
 }
 export default function App() {
   return (
     <Provider store={store}>
-      <App1 />
+      <CounterApp />
     </Provider>
   );
 }
+
+// import * as a from '@zohodesk/redux-modules';
+// import useLogin from './login-react-connect/useLogin';
+// import Login from './Login';
+
+// store = a.enhanceStoreWithAsyncReducers(store, staticReducers);
+// window.store = store;
+// store.dispatch({ type: 'test' });
+
+// function App1() {
+//   let { session: userSession, action } = useLogin(null);
+
+//   return (
+//     <div>
+//       <div onClick={() => action.createSession({ test: 1 })}>test</div>
+//       {userSession === null && <Login />}
+//       {userSession != null && <div>Login</div>}
+//     </div>
+//   );
+// }
