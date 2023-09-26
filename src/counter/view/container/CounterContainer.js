@@ -1,11 +1,12 @@
 import React from 'react';
-import Counter from '../view/Counter';
-import useCounter from './useCounter';
+import Counter from '../component/Counter';
+import useCounter from '../../controller/useCounter';
 
 /* hooks way */
-export default function CounterContainer1() {
+export default function CounterContainer() {
   let { counter, handleDecrement, handleIncrement, handleOddIncrement } =
     useCounter();
+  debugger;
   return (
     <Counter
       count={counter}

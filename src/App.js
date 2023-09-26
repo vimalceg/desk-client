@@ -4,7 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import reducer, { staticReducers } from './reducer';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
-import CounterContainer from './counter/controller/CounterContainer';
+import CounterContainer from './counter/view/container/CounterContainer';
+// import CounterContainerCurrent from './counter-current/containers/CounterContainer';
 
 let store = createStore(reducer, applyMiddleware(logger));
 window.store = store;
@@ -12,10 +13,13 @@ window.store = store;
 function CounterApp() {
   return <CounterContainer />;
 }
+
 export default function App() {
   return (
     <Provider store={store}>
       <CounterApp />
+      <div>existing</div>
+      {/* <CounterContainerCurrent /> */}
     </Provider>
   );
 }

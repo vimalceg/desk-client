@@ -1,25 +1,13 @@
-export default function CounterService(repo) {
-  function handleIncrement(count) {
-    repo.handleIncrement(count + 1);
-  }
-  function handleDecrement(count) {
-    repo.handleDecrement(count - 1);
-  }
-  function handleOddIncrement(count) {
-    if (count % 2 === 1) {
-      repo.handleIncrement(count + 1);
-    } else {
-      console.log('count is even');
-    }
-  }
+import handleIncrement from './handleIncrement';
+import handleDecrement from './handleDecrement';
+import handleOddIncrement from './handleOddIncrement';
+import getCounter from './getCounter';
 
-  function getCounter() {
-    return repo.getCounter();
-  }
+export default function CounterService(repo) {
   return {
-    handleIncrement,
-    handleDecrement,
-    handleOddIncrement,
-    getCounter,
+    handleIncrement: handleIncrement(repo),
+    handleDecrement: handleDecrement(repo),
+    handleOddIncrement: handleOddIncrement(repo),
+    getCounter: getCounter(repo),
   };
 }
