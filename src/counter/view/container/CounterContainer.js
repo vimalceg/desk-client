@@ -4,11 +4,17 @@ import useCounter from '../../controller/useCounter';
 
 /* hooks way */
 export default function CounterContainer() {
-  let { counter, handleDecrement, handleIncrement, handleOddIncrement } =
-    useCounter();
-  debugger;
+  let {
+    counter,
+    textColor,
+    handleDecrement,
+    handleIncrement,
+    handleOddIncrement,
+  } = useCounter();
+
   return (
     <Counter
+      textColor={textColor}
       count={counter}
       onIncrement={() => handleIncrement(counter)}
       onDecrement={() => handleDecrement(counter)}

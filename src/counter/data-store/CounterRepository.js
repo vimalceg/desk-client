@@ -1,3 +1,4 @@
+import Counter from '../domain/entity/Counter';
 export default function CounterRepository(store) {
   function handleIncrement(count) {
     return store.increment(count);
@@ -6,7 +7,10 @@ export default function CounterRepository(store) {
     return store.decrement(count);
   }
   function getCounter() {
-    return store.getCounter();
+    let counterEntity = Counter();
+    counterEntity.setCount(store.getCounter());
+    debugger;
+    return counterEntity;
   }
   return {
     handleIncrement,

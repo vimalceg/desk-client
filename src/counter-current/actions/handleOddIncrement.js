@@ -1,9 +1,12 @@
 import handleIncrement from './handleIncrement';
-
-export default function handleOddIncrement(count) {
-  if (count % 2 === 1) {
-    handleIncrement(count + 1);
-  } else {
-    console.log('count is even');
-  }
+import getCounter from '../selectors/getCounter';
+export default function handleOddIncrement() {
+  return (dispatch, getState) => {
+    let count = getCounter(getState());
+    if (count % 2 === 1) {
+      dispatch(handleIncrement());
+    } else {
+      console.log('count is even');
+    }
+  };
 }

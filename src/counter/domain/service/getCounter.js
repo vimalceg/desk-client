@@ -1,5 +1,7 @@
+import counterOutputModel from '../model/outputmodel/counterOutputModel';
 export default function getCounter(repo) {
   return function () {
-    return repo.getCounter();
+    let counterEntity = repo.getCounter();
+    return counterOutputModel(counterEntity);
   };
 }

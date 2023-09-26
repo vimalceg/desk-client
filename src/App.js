@@ -5,9 +5,10 @@ import reducer, { staticReducers } from './reducer';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import CounterContainer from './counter/view/container/CounterContainer';
-// import CounterContainerCurrent from './counter-current/containers/CounterContainer';
-
-let store = createStore(reducer, applyMiddleware(logger));
+import CounterContainerCurrent from './counter-current/containers/CounterContainer';
+import thunk from 'redux-thunk';
+console.log(thunk);
+let store = createStore(reducer, applyMiddleware(thunk, logger));
 window.store = store;
 
 function CounterApp() {

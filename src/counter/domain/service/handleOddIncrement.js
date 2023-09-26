@@ -1,4 +1,4 @@
-export default handleOddIncrement = (repo) => (count) => {
+export default (repo) => (count) => {
   if (count % 2 === 1) {
     repo.handleIncrement(count + 1);
   } else {

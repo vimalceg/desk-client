@@ -6,6 +6,8 @@ export default function counter(state = 0, action) {
       return state + 1;
     case CONST.DECREMENT:
       return state - 1;
+    case CONST.SET_COUNTER:
+      return action.data;
   }
   return state;
 }
