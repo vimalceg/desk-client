@@ -5,13 +5,16 @@ import useCounter from '../../controller/useCounter';
 /* hooks way */
 export default function CounterContainer() {
   let {
+    isLoading,
     counter,
     textColor,
     handleDecrement,
     handleIncrement,
     handleOddIncrement,
   } = useCounter();
-
+  if (isLoading) {
+    return <div>Counter Loading</div>;
+  }
   return (
     <Counter
       textColor={textColor}

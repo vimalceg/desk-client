@@ -2,7 +2,6 @@ import setCounter from './setCounter';
 
 export default function fetchCounter() {
   return (dispatch) => {
-    console.log(dispatch);
     return fetch('/api/counter.json')
       .then((res) => res.json())
       .then((res) => {

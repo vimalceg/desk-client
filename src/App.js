@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import CounterContainer from './counter/view/container/CounterContainer';
 import CounterContainerCurrent from './counter-current/containers/CounterContainer';
 import thunk from 'redux-thunk';
-console.log(thunk);
+
 let store = createStore(reducer, applyMiddleware(thunk, logger));
 window.store = store;
 

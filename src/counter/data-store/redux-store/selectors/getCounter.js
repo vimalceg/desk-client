@@ -1,3 +1,3 @@
-export default function getCounter(counter) {
-  return counter;
+export default function getCounter(state) {
+  return state.counter;
 }

@@ -1,10 +1,8 @@
-import { INCREMENT, DECREMENT } from '../constants';
+import { combineReducers } from 'redux';
+import counter from './counter';
+import uiState from './uiState';
 
-export default function counter(state = 0, action) {
-  switch (action.type) {
-    case INCREMENT:
-    case DECREMENT:
-      return action.data;
-  }
-  return state;
-}
+export default combineReducers({
+  uiState,
+  counter,
+});
