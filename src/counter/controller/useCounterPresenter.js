@@ -3,15 +3,15 @@ import counterViewModel from './counterViewModel';
 
 export default function useCounterPresenter(counterService) {
   // let [isLoading, setLoading] = useState(true);
-  let { counter } = useSelector(() => {
+  let { counter,textColor } = useSelector(() => {
     let count = counterService.getCounter();
-    console.log('count', count);
     return counterViewModel(count);
   });
-
+  console.log("counter",counter)
   return {
     // isLoading,
     counter,
+    textColor,
     NotifyService: {
       onSuccess: () => {
         // setLoading(false);

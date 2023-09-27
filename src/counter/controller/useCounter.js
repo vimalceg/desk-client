@@ -10,7 +10,7 @@ export default function useCounter() {
 
   let counterRepository = CounterRepository(counterStoreCreator(store));
   let counterService = CounterService(counterRepository);
-  let { counter, isLoading, NotifyService } =
+  let { counter, textColor, isLoading, NotifyService } =
     useCounterPresenter(counterService);
   // let actions = useCounterController(counterService);
   useEffect(() => {
@@ -23,7 +23,8 @@ export default function useCounter() {
   }, []);
   return {
     isLoading,
-    ...counter,
+    textColor,
+    counter,
     ...counterService,
   };
 }
