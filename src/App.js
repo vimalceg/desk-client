@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 let store = createStore(reducer, applyMiddleware(thunk, logger));
 window.store = store;
 
-function CounterApp() {
+function CounterApp() { 
   return <CounterContainer />;
 }
 

@@ -1,22 +1,33 @@
-import { useSelector } from 'react-redux';
-import counterViewModel from './counterViewModel';
+import { useSelector } from "react-redux";
+import counterViewModel from "./counterViewModel";
 
-export default function useCounterPresenter(counterService) {
+export default function useCounterPresenter(
+  counterService,
+  counterUIRepository,
+) {
   // let [isLoading, setLoading] = useState(true);
-  let { counter,textColor } = useSelector(() => {
+  let viewModel = useSelector(() => {
     let count = counterService.getCounter();
-    return counterViewModel(count);
+    let isLoading = counterUIRepository.hasLoading();
+    let error = counterUIRepository.getError();
+    return counterViewModel(count, isLoading, error);
   });
-  console.log("counter",counter)
+
   return {
     // isLoading,
-    counter,
-    textColor,
+    viewModel,
+
     NotifyService: {
       onSuccess: () => {
+        counterUIRepository.setLoading(false);
         // setLoading(false);
       },
-      onFailure: () => {
+      onFailure: (error) => {
+        counterUIRepository.setLoading(false);
+        if (error) {
+          counterUIRepository.setError(error);
+        }
+
         // setLoading(false);
       },
     },

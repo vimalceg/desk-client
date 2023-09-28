@@ -1,4 +1,3 @@
 export const INCREMENT = '@COUNTER/INCREMENT';
 export const DECREMENT = '@COUNTER/DECREMENT';
 export const SET_COUNT = '@COUNTER/SET_COUNT';
-export const IS_LOADING = '@COUNTER/IS_LOADING';

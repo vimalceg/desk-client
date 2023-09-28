@@ -1,27 +1,31 @@
-import React from 'react';
-import Counter from '../component/Counter';
-import useCounter from '../../controller/useCounter';
+import React from "react";
+import Counter from "../component/Counter";
+import useCounter from "../../controller/useCounter";
 
 /* hooks way */
 export default function CounterContainer() {
   let {
     isLoading,
     counter,
+    error,
     textColor,
     handleDecrement,
     handleIncrement,
     handleOddIncrement,
   } = useCounter();
+  console.log("component", error);
   if (isLoading) {
     return <div>Counter Loading</div>;
+  } else if (error.errorMessage) {
+    return <div>{error.errorMessage}</div>;
   }
   return (
     <Counter
       textColor={textColor}
       count={counter}
-      onIncrement={() => handleIncrement(counter)}
-      onDecrement={() => handleDecrement(counter)}
-      onOddIncrement={() => handleOddIncrement(counter)}
+      onIncrement={handleIncrement}
+      onDecrement={handleDecrement}
+      onOddIncrement={handleOddIncrement}
     />
   );
 }

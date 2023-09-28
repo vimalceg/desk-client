@@ -1,8 +1,12 @@
-import { combineReducers } from 'redux';
-import counter from './counter';
-import uiState from './uiState';
+import { INCREMENT, DECREMENT, SET_COUNT } from '../constants';
 
-export default combineReducers({
-  uiState,
-  counter,
-});
+export default function counter(state = 0, action) {
+  switch (action.type) {
+    case INCREMENT:
+    case DECREMENT:
+    case SET_COUNT:
+      return action.data;
+  }
+  return state;
+}
+
