@@ -1,15 +1,13 @@
 export default function timerReducer(
-  state = { isStart: true, time: 0 },
+  state = { hasStart: false, time: 0 },
   action,
 ) {
   let { type, data } = action;
   switch (type) {
     case "SET_TIMER":
       return { ...state, time: data };
-    case "START_TIMER":
-      return { ...state, isStart: true };
-    case "STOP_TIMER":
-      return { ...state, isStart: false };
+    case "SET_TIMER_STATUS":
+      return { ...state, hasStart: data };
   }
   return state;
 }

@@ -4,11 +4,8 @@ import { bindActionCreators } from "redux";
 function setTimer({ time }) {
   return { type: "SET_TIMER", data: time };
 }
-function startTimer({ time }) {
-  return { type: "START_TIMER", data: time };
-}
-function stopTimer({ time }) {
-  return { type: "STOP_TIMER", data: time };
+function setTimerStatus(status) {
+  return { type: "SET_TIMER_STATUS", data: status };
 }
 
 /* reducer*/
@@ -21,7 +18,7 @@ function hasLoadingSelector(state) {
 
 export default (store) => ({
   ...store,
-  ...bindActionCreators({ setTimer, startTimer, stopTimer }, store.dispatch),
+  ...bindActionCreators({ setTimer, setTimerStatus }, store.dispatch),
   getTimer: () => getTimerSelector(store.getState()),
   hasLoading: () => hasLoadingSelector(store.getState()),
 });

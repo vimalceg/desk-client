@@ -1,4 +1,4 @@
-export default function controller(viewModel, NotifyService) {
+export default function controller(counterService,viewModel, NotifyService) {
   return {
     handleIncrement: () => counterService.handleIncrement(viewModel.counter),
     handleDecrement: () =>

@@ -2,6 +2,8 @@ import Timer from "../component/Timer";
 import useTimer from "../../controller/useTimer";
 
 export default function TimerContainer() {
-  let { onStart, onStop } = useTimer();
-  return <Timer time={0} onStart={onStart} onStop={onStop} />;
+  let { onStart, onStop, time, hasStart } = useTimer();
+  return (
+    <Timer time={time} onStart={onStart} onStop={onStop} hasStart={hasStart} />
+  );
 }

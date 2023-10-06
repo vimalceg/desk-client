@@ -28,6 +28,6 @@ export default function useCounter() {
   }, []);
   return {
     ...viewModel,
-    ...controller(viewModel, NotifyService),
+    ...controller(counterService,viewModel, NotifyService),
   };
 }
