@@ -5,6 +5,7 @@ import useCounter from "../../controller/useCounter";
 /* hooks way */
 export default function CounterContainer() {
   let {
+    buttonDisabled,
     isLoading,
     counter,
     error,
@@ -26,6 +27,7 @@ export default function CounterContainer() {
       onIncrement={handleIncrement}
       onDecrement={handleDecrement}
       onOddIncrement={handleOddIncrement}
+      buttonDisabled={buttonDisabled}
     />
   );
 }

@@ -6,7 +6,7 @@ export default function TimerRepository(dataStore) {
   function start(increment) {
     dataStore.setTimerStatus(true);
     timerClient.start(() => {
-      let timerObj = increment(getTimer());
+      let timerObj = increment();
       dataStore.setTimer({ time: timerObj.getTime() });
     });
   }

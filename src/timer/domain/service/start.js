@@ -1,4 +1,3 @@
-import increment from "./increment";
-export default function start(repo) {
+export default function start(repo, increment) {
   return () => repo.start(increment);
 }

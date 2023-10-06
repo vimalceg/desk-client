@@ -1,11 +1,13 @@
 import start from "./start";
 import stop from "./stop";
 import getTimer from "./getTimer";
-
-export default function CounterService(repo) {
+import increment from "./increment";
+export default function CounterService(repo, counterService) {
+  let incrementFn = increment(repo, counterService);
   return {
-    start: start(repo),
+    start: start(repo, incrementFn),
     stop: stop(repo),
     getTimer: getTimer(repo),
+    increment: incrementFn,
   };
 }

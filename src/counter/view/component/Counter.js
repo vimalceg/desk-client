@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function Counter({
   count,
@@ -6,12 +6,20 @@ export default function Counter({
   onIncrement,
   onDecrement,
   onOddIncrement,
+  buttonDisabled,
 }) {
   return (
     <div style={{ color: textColor }}>
-      <button onClick={onDecrement}>-</button> {count}{' '}
-      <button onClick={onIncrement}>+</button>{' '}
-      <button onClick={onOddIncrement}>ODD +</button>
+      <button disabled={buttonDisabled} onClick={onDecrement}>
+        -
+      </button>{" "}
+      {count}{" "}
+      <button disabled={buttonDisabled} onClick={onIncrement}>
+        +
+      </button>{" "}
+      <button disabled={buttonDisabled} onClick={onOddIncrement}>
+        ODD +
+      </button>
     </div>
   );
 }

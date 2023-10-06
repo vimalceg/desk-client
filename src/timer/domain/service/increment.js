@@ -1,5 +1,9 @@
-export default function increment(timer) {
+export default function increment(repo, counterService) {
   //mutate?
-  timer.setTime(timer.getTime() + 1);
-  return timer;
+  return () => {
+    console.log(counterService.getCounter());
+    let timer = repo.getTimer();
+    timer.setTime(timer.getTime() + counterService.getCounter() || 1);
+    return timer;
+  };
 }

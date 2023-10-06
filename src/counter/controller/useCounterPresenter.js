@@ -4,13 +4,15 @@ import counterViewModel from "./counterViewModel";
 export default function useCounterPresenter(
   counterService,
   counterUIRepository,
+  timerService,
 ) {
   // let [isLoading, setLoading] = useState(true);
   let viewModel = useSelector(() => {
     let count = counterService.getCounter();
     let isLoading = counterUIRepository.hasLoading();
     let error = counterUIRepository.getError();
-    return counterViewModel(count, isLoading, error);
+    let hasStart = timerService.getTimer().hasStart;
+    return counterViewModel(count, isLoading, error, hasStart);
   });
 
   return {
