@@ -9,7 +9,6 @@ export default function CounterUIRepository(store) {
     return store.hasLoading();
   }
   function getError() {
-    debugger;
     return store.getError();
   }
   return {

@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
-import login from './login-module/login-redux/sessionReducer';
-import counter from './counter/data-store/redux-store/reducers';
-import uiState from './counter/ui-store/redux-store/reducers';
+import { combineReducers } from "redux";
+import login from "./login-module/login-redux/sessionReducer";
+import counter from "./counter/data-store/redux-store/reducers";
+import uiState from "./counter/ui-store/redux-store/reducers";
+import timer from "./timer/data-store/redux-store/timerReducer";
 // import counterCurrent from './counter-current/reducers';
 function ticket(state = {}, action) {
   return state;
@@ -16,6 +17,7 @@ export const staticReducers = {
   login,
   counter,
   uiState,
+  timer,
   // counterCurrent,
 };
 export default combineReducers(staticReducers);

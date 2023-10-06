@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useStore } from "react-redux";
 import CounterService from "../domain/service/CounterService";
 import CounterRepository from "../data-store/CounterRepository";
 import CounterUIRepository from "../ui-store/CounterUIRepository";
-
 import counterStoreCreator from "../data-store/redux-store/counterStore";
 import counterUIStoreCreator from "../ui-store/redux-store/counterUIStore";
-
 import useCounterPresenter from "./useCounterPresenter";
+import controller from "./controller";
 
 export default function useCounter() {
   let store = useStore();
@@ -20,7 +19,6 @@ export default function useCounter() {
     counterService,
     counterUIRepository,
   );
-  console.log("viewModel", viewModel);
   useEffect(() => {
     counterUIRepository.setLoading(true);
     counterService.fetchCounter(NotifyService);
@@ -30,10 +28,6 @@ export default function useCounter() {
   }, []);
   return {
     ...viewModel,
-    handleIncrement: () => counterService.handleIncrement(viewModel.counter),
-    handleDecrement: () =>
-      counterService.handleDecrement(viewModel.counter, NotifyService),
-    handleOddIncrement: () =>
-      counterService.handleOddIncrement(viewModel.counter),
+    ...controller(viewModel, NotifyService),
   };
 }
