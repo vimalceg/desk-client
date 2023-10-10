@@ -6,9 +6,9 @@ import logger from "redux-logger";
 import { Provider } from "react-redux";
 import CounterContainer from "./counter/view/container/CounterContainer";
 import thunk from "redux-thunk";
-import TimerContainer from './timer/view/container/TimerContainer';
+import TimerContainer from "./timer/view/container/TimerContainer";
+import TicketListContainer from "./ticket/view/controller/TicketListContainer";
 let store = createStore(reducer, applyMiddleware(thunk, logger));
-
 
 function CounterApp() {
   return <CounterContainer />;
@@ -55,7 +55,8 @@ export default function App() {
     <Provider store={store}>
       <CounterApp />
       <TimerContainer />
-      <div>existing</div>
+      <TicketListContainer />
+
       {/* <CounterContainerCurrent /> */}
     </Provider>
   );
