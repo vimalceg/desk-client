@@ -4,6 +4,7 @@ import counter from "./counter/data-store/redux-store/reducers";
 import uiState from "./counter/ui-store/redux-store/reducers";
 import timer from "./timer/data-store/redux-store/timerReducer";
 import tickets from "./ticket/data-store/redux-store/reducer";
+import departments from "./department/data-store/redux-store/reducer";
 
 // import counterCurrent from './counter-current/reducers';
 // function ticket(state = {}, action) {
@@ -21,6 +22,7 @@ export const staticReducers = {
   uiState,
   timer,
   tickets,
+  departments,
   // counterCurrent,
 };
 export default combineReducers(staticReducers);

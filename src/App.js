@@ -8,6 +8,7 @@ import CounterContainer from "./counter/view/container/CounterContainer";
 import thunk from "redux-thunk";
 import TimerContainer from "./timer/view/container/TimerContainer";
 import TicketListContainer from "./ticket/view/controller/TicketListContainer";
+import DepartmentContainer from "./department/view/container/DepartmentContainer";
 let store = createStore(reducer, applyMiddleware(thunk, logger));
 
 function CounterApp() {
@@ -56,7 +57,7 @@ export default function App() {
       <CounterApp />
       <TimerContainer />
       <TicketListContainer />
-
+      <DepartmentContainer />
       {/* <CounterContainerCurrent /> */}
     </Provider>
   );

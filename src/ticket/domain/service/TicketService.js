@@ -1,7 +1,9 @@
-import getTickets from './getTickets';
+import getTickets from "./getTickets";
+import fetchTicketsAndsetTicketsInStore from "./fetchTickets";
 
-export default function TicketService(repo){
-    return {
-        getTickets:getTickets(repo)
-    }
+export default function TicketService(repo) {
+  return {
+    fetchTicketsAndsetTicketsInStore: fetchTicketsAndsetTicketsInStore(repo),
+    getTickets: getTickets(repo),
+  };
 }

@@ -1,11 +1,12 @@
 import Ticket from "../domain/entity/Ticket";
+import fetchTickets from "./api/fetchTickets";
 
 export default function TicketRepository(store) {
-  //   function fetchCounter() {
-  //     return fetchCount().then((res) => {
-  //       store.setCount(res.counter);
-  //     });
-  //   }
+  function fetchTicketsAndsetTicketsInStore() {
+    return fetchTickets().then((res) => {
+      store.setTickets(res.data);
+    });
+  }
 
   function getTickets() {
     let ticketArr = store.getTickets();
@@ -19,6 +20,7 @@ export default function TicketRepository(store) {
     return ticketEntityArray;
   }
   return {
+    fetchTicketsAndsetTicketsInStore,
     getTickets,
     // fetchCounter,
   };
