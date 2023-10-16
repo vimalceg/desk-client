@@ -6,16 +6,19 @@ import { useStore } from "react-redux";
 import controller from "./controller";
 import { useEffect } from "react";
 
-export default function useTickets() {
+export default function useTickets({ departmentId }) {
   let store = useStore();
   let repo = TicketRepository(createTicketStore(store));
   let service = TicketService(repo);
   let { viewModel } = usePresenter(service);
   useEffect(() => {
-    service.fetchTicketsAndsetTicketsInStore({
-      onSuccess: () => {},
-      onError: () => {},
-    });
-  }, []);
+    service.fetchTicketsAndsetTicketsInStore(
+      { departmentId },
+      {
+        onSuccess: () => {},
+        onError: () => {},
+      },
+    );
+  }, [departmentId]);
   return { ...viewModel };
 }

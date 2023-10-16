@@ -1,8 +1,12 @@
 {
   "data": [
     {
-      "id": "1",
+      "id": "d1",
       "name": "department1"
+    },
+    {
+      "id": "d2",
+      "name": "department2"
     }
   ]
 }

@@ -2,8 +2,8 @@ import Ticket from "../domain/entity/Ticket";
 import fetchTickets from "./api/fetchTickets";
 
 export default function TicketRepository(store) {
-  function fetchTicketsAndsetTicketsInStore() {
-    return fetchTickets().then((res) => {
+  function fetchTicketsAndsetTicketsInStore({ departmentId }) {
+    return fetchTickets({ departmentId }).then((res) => {
       store.setTickets(res.data);
     });
   }

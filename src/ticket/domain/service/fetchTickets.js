@@ -1,4 +1,6 @@
 export default (repo) =>
-  ({ onSuccess, onError }) => {
-    repo.fetchTicketsAndsetTicketsInStore().then(onSuccess, onError);
+  ({ departmentId }, { onSuccess, onError }) => {
+    repo
+      .fetchTicketsAndsetTicketsInStore({ departmentId })
+      .then(onSuccess, onError);
   };

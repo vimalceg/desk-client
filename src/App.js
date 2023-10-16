@@ -7,8 +7,7 @@ import { Provider } from "react-redux";
 import CounterContainer from "./counter/view/container/CounterContainer";
 import thunk from "redux-thunk";
 import TimerContainer from "./timer/view/container/TimerContainer";
-import TicketListContainer from "./ticket/view/controller/TicketListContainer";
-import DepartmentContainer from "./department/view/container/DepartmentContainer";
+import TicketList from "./page/ticketList";
 let store = createStore(reducer, applyMiddleware(thunk, logger));
 
 function CounterApp() {
@@ -50,14 +49,16 @@ function Timer() {
     </div>
   );
 }
+
 window.store = store;
+
 export default function App() {
   return (
     <Provider store={store}>
       <CounterApp />
       <TimerContainer />
-      <TicketListContainer />
-      <DepartmentContainer />
+      <TicketList />
+
       {/* <CounterContainerCurrent /> */}
     </Provider>
   );

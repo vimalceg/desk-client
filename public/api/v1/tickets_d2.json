@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "subject": "subject3",
+      "number": "123",
+      "department": {
+        "id": "d2",
+        "name": "department2"
+      }
+    },
+    {
+      "id": "2",
+      "subject": "subject4",
+      "number": "1234",
+      "department": {
+        "id": "d2",
+        "name": "department2"
+      }
+    },
+    {
+      "id": "3",
+      "subject": "subject5",
+      "number": "12345",
+      "department": {
+        "id": "d2",
+        "name": "department2"
+      }
+    }
+  ]
+}

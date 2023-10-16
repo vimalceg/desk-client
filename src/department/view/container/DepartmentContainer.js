@@ -1,15 +1,19 @@
 import useDepartment from "../../controller/useDepartment";
 import department from "../../data-store/redux-store/reducer";
 
-export default function DepartmentContainer() {
-  let { departments, selectedDepartmentId } = useDepartment();
+function DepartmentList({ departments, selectedDepartmentId }) {
   return (
     <div>
-      <div>Selected Department: {selectedDepartmentId}</div>
+      <div>Selected Department1: {selectedDepartmentId}</div>
       {departments.map((department) => {
         let { name, onSelect } = department;
         return <div onClick={onSelect}>{name}</div>;
       })}
     </div>
   );
+}
+
+export default function DepartmentContainer({ onSelect }) {
+  let obj = useDepartment({ onSelect });
+  return <DepartmentList {...obj} />;
 }
