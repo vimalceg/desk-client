@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import selectedDepartmentViewModel from "./selectedDepartmentViewModel";
+import { useSelector } from 'react-redux';
+import selectedDepartmentViewModel from './selectedDepartmentViewModel';
 
 export default function usePresenter1(repo) {
   let viewModel = useSelector(() => {
@@ -7,5 +7,6 @@ export default function usePresenter1(repo) {
       departmentId: repo.getSelectedDepartmentId(),
     });
   });
+  debugger;
   return { viewModel };
 }

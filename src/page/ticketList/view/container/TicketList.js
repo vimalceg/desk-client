@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { DepartmentContainer } from "../../../../department";
-import { TicketListContainer } from "../../../../ticket";
-import useTicketList from "../../application/useTicketList";
+import React, { useState } from 'react';
+import { DepartmentContainer } from '../../../../department';
+import { TicketListContainer } from '../../../../ticket';
+import useTicketList from '../../application/useTicketList';
 export default function TicketList() {
   let { departmentId, setDepartmentId } = useTicketList();
-
+  console.log('departmentId', departmentId);
   return (
     <React.Fragment>
-      <DepartmentContainer onSelect={setDepartmentId} />
+      <DepartmentContainer />
       {departmentId ? (
         <TicketListContainer departmentId={departmentId} />
       ) : (

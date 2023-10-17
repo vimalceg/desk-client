@@ -1,5 +1,6 @@
-import Timer from "../component/Timer";
-import useTimer from "../../controller/useTimer";
+import React from 'react';
+import Timer from '../component/Timer';
+import useTimer from '../../controller/useTimer';
 
 export default function TimerContainer() {
   let { onStart, onStop, time, hasStart } = useTimer();

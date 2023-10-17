@@ -1,5 +1,6 @@
-import useDepartment from "../../controller/useDepartment";
-import department from "../../data-store/redux-store/reducer";
+import React from 'react';
+import useDepartment from '../../controller/useDepartment';
+import department from '../../data-store/redux-store/reducer';
 
 function DepartmentList({ departments, selectedDepartmentId }) {
   return (
