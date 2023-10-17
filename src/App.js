@@ -14,7 +14,7 @@ import {
 } from '@zohodesk/redux-modules';
 
 let store = createStore(reducer, applyMiddleware(thunk, logger));
-let newStore = enhanceStoreWithAsyncReducers(store, reducer);
+let newStore = enhanceStoreWithAsyncReducers(store, staticReducers);
 
 function CounterApp() {
   return <CounterContainer />;
@@ -57,15 +57,17 @@ function Timer() {
 }
 
 window.store = store;
-
+store.subscribe(() => {
+  store.getState();
+});
 export default function App() {
   return (
     <Provider store={newStore}>
-      <ReduxModuleProvider>
-        <CounterApp />
-        <TimerContainer />
-        <TicketList />
-      </ReduxModuleProvider>
+      <div>test</div>
+      <CounterApp />
+      <TimerContainer />
+      <TicketList />
+
       {/* <CounterContainerCurrent /> */}
     </Provider>
   );

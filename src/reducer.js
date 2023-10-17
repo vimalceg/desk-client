@@ -23,7 +23,7 @@ export const staticReducers = {
   timer,
   tickets,
   departments,
-  selectedDepartmentId,
   // counterCurrent,
 };
+export const staticReducers;
 export default combineReducers(staticReducers);

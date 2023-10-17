@@ -15,7 +15,7 @@ export default function useDepartment({ onSelect, id }) {
   // let [id, setId] = useState(null);
   let departmentRepo = DepartmentRepository(createDepartmentStore(store));
   let departmentService = DepartmentService(departmentRepo);
-  let repo = DepartmentUIRepo(createDepartmentUIStore(store), id);
+  let repo = DepartmentUIRepo(createDepartmentUIStore(store, id));
   let { viewModel } = usePresenter(
     departmentService,
     repo

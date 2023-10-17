@@ -3,7 +3,7 @@ import { DepartmentContainer } from '../../../../department';
 import { TicketListContainer } from '../../../../ticket';
 import useTicketList from '../../application/useTicketList';
 export default function TicketList() {
-  let { departmentId } = useTicketList();
+  let { departmentId } = useTicketList('selectedDepartmentId');
   return (
     <React.Fragment>
       <DepartmentContainer id="selectedDepartmentId" />
