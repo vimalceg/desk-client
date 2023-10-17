@@ -7,6 +7,6 @@ export default function usePresenter1(repo) {
       departmentId: repo.getSelectedDepartmentId(),
     });
   });
-  debugger;
+  console.log('usePresenter1,viewModel', viewModel);
   return { viewModel };
 }

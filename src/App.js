@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./style.css";
-import { createStore, applyMiddleware } from "redux";
-import reducer, { staticReducers } from "./reducer";
-import logger from "redux-logger";
-import { Provider } from "react-redux";
-import CounterContainer from "./counter/view/container/CounterContainer";
-import thunk from "redux-thunk";
-import TimerContainer from "./timer/view/container/TimerContainer";
-import TicketList from "./page/ticketList";
+import React, { useState, useEffect, useRef } from 'react';
+import './style.css';
+import { createStore, applyMiddleware } from 'redux';
+import reducer, { staticReducers } from './reducer';
+import logger from 'redux-logger';
+import { Provider } from 'react-redux';
+import CounterContainer from './counter/view/container/CounterContainer';
+import thunk from 'redux-thunk';
+import TimerContainer from './timer/view/container/TimerContainer';
+import TicketList from './page/ticketList';
 let store = createStore(reducer, applyMiddleware(thunk, logger));
 
 function CounterApp() {
@@ -51,7 +51,9 @@ function Timer() {
 }
 
 window.store = store;
-
+store.subscribe(() => {
+  console.log('store', store.getState());
+});
 export default function App() {
   return (
     <Provider store={store}>

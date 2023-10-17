@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import departmentViewModel from "./departmentViewModel";
+import { useSelector } from 'react-redux';
+import departmentViewModel from './departmentViewModel';
 
 export default function usePresenter(departmentService, uiService) {
   let viewModel = useSelector(() => {
@@ -11,6 +11,7 @@ export default function usePresenter(departmentService, uiService) {
       ...departmentViewModel(departmentsObject, uiService),
     };
   });
+  console.log('viewModel', viewModel);
   return {
     viewModel,
   };
