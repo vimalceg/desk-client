@@ -51,9 +51,7 @@ function Timer() {
 }
 
 window.store = store;
-store.subscribe(() => {
-  console.log('store', store.getState());
-});
+
 export default function App() {
   return (
     <Provider store={store}>

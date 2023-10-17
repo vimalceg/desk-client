@@ -11,7 +11,6 @@ export default function usePresenter(departmentService, uiService) {
       ...departmentViewModel(departmentsObject, uiService),
     };
   });
-  console.log('viewModel', viewModel);
   return {
     viewModel,
   };

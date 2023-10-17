@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 
 export default function Timer({ time, onStart, onStop, hasStart }) {
-  console.log("onStart, onStop", onStart, onStop);
   return (
     <div>
       {time}

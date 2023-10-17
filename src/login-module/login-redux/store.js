@@ -3,7 +3,7 @@ import { setUserSession } from './actions';
 import { bindActionCreators } from 'redux';
 
 let store = window.store;
-console.log('store', store);
+
 store = {
   ...store,
   ...bindActionCreators({ setUserSession }, store && store.dispatch),

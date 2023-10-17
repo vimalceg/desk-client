@@ -8,7 +8,6 @@ export default function useSelectedDepartment() {
   let store = useStore();
   let repo = DepartmentUIRepo(createDepartmentUIStore(store));
   let { viewModel } = usePresenter1(repo);
-  console.log('useSelectedDepartment,viewModel', viewModel);
   return {
     viewModel,
   };

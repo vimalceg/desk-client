@@ -16,7 +16,6 @@ class CounterContainer extends React.Component {
     };
   }
   componentDidMount() {
-    console.log('mount');
     this.props.fetchCounter().then(() => {
       this.setState({ isLoading: false });
     });

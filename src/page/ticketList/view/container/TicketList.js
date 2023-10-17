@@ -4,7 +4,6 @@ import { TicketListContainer } from '../../../../ticket';
 import useTicketList from '../../application/useTicketList';
 export default function TicketList() {
   let { departmentId, setDepartmentId } = useTicketList();
-  console.log('departmentId', departmentId);
   return (
     <React.Fragment>
       <DepartmentContainer />
