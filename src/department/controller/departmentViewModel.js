@@ -1,11 +1,11 @@
-export default function departmentViewModel(departments, { onSelect, id }) {
+export default function departmentViewModel(departments, repo) {
   return {
     departments: departments.map((department) => {
       return {
         ...department,
-        onSelect: () => onSelect(department.id),
+        onSelect: () => repo.setSelectedDepartmentId(department.id),
       };
     }),
-    selectedDepartmentId: id,
+    selectedDepartmentId: repo.getSelectedDepartmentId(),
   };
 }

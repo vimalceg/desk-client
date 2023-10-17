@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { DepartmentContainer } from "../../../../department";
 import { TicketListContainer } from "../../../../ticket";
+import useTicketList from "../../application/useTicketList";
 export default function TicketList() {
-  let [departmentId, setDepartmentId] = useState();
+  let { departmentId, setDepartmentId } = useTicketList();
+
   return (
     <React.Fragment>
-      <DepartmentContainer
-        onSelect={(id) => {
-          setDepartmentId(id);
-        }}
-      />
+      <DepartmentContainer onSelect={setDepartmentId} />
       {departmentId ? (
         <TicketListContainer departmentId={departmentId} />
       ) : (
