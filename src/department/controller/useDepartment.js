@@ -1,24 +1,24 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import createDepartmentStore from "../data-store/redux-store/store";
-import DepartmentRepository from "../data-store/DepartmentRepository";
-import DepartmentService from "../domain/service/DepartmentService";
+import createDepartmentStore from '../data-store/redux-store/store';
+import DepartmentRepository from '../data-store/DepartmentRepository';
+import DepartmentService from '../domain/service/DepartmentService';
 
-import createDepartmentUIStore from "../ui-store/redux-store/store";
-import DepartmentUIRepo from "../ui-store/DepartmentUIRepo";
+import createDepartmentUIStore from '../ui-store/redux-store/store';
+import DepartmentUIRepo from '../ui-store/DepartmentUIRepo';
 
-import { useStore } from "react-redux";
-import usePresenter from "./usePresenter";
+import { useStore } from 'react-redux';
+import usePresenter from './usePresenter';
 
-export default function useDepartment({ onSelect }) {
+export default function useDepartment({ onSelect, id }) {
   let store = useStore();
   // let [id, setId] = useState(null);
   let departmentRepo = DepartmentRepository(createDepartmentStore(store));
   let departmentService = DepartmentService(departmentRepo);
-  let repo = DepartmentUIRepo(createDepartmentUIStore(store));
+  let repo = DepartmentUIRepo(createDepartmentUIStore(store), id);
   let { viewModel } = usePresenter(
     departmentService,
-    repo,
+    repo
     //   {
     //   id,
     //   onSelect: (id) => {

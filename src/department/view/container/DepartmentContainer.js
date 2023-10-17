@@ -14,7 +14,7 @@ function DepartmentList({ departments, selectedDepartmentId }) {
   );
 }
 
-export default function DepartmentContainer({ onSelect }) {
-  let obj = useDepartment({ onSelect });
+export default function DepartmentContainer({ onSelect, id }) {
+  let obj = useDepartment({ onSelect, id });
   return <DepartmentList {...obj} />;
 }

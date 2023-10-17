@@ -8,7 +8,13 @@ import CounterContainer from './counter/view/container/CounterContainer';
 import thunk from 'redux-thunk';
 import TimerContainer from './timer/view/container/TimerContainer';
 import TicketList from './page/ticketList';
+import {
+  enhanceStoreWithAsyncReducers,
+  ReduxModuleProvider,
+} from '@zohodesk/redux-modules';
+
 let store = createStore(reducer, applyMiddleware(thunk, logger));
+let newStore = enhanceStoreWithAsyncReducers(store, reducer);
 
 function CounterApp() {
   return <CounterContainer />;
@@ -54,11 +60,12 @@ window.store = store;
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <CounterApp />
-      <TimerContainer />
-      <TicketList />
-
+    <Provider store={newStore}>
+      <ReduxModuleProvider>
+        <CounterApp />
+        <TimerContainer />
+        <TicketList />
+      </ReduxModuleProvider>
       {/* <CounterContainerCurrent /> */}
     </Provider>
   );

@@ -3,10 +3,11 @@ import { DepartmentContainer } from '../../../../department';
 import { TicketListContainer } from '../../../../ticket';
 import useTicketList from '../../application/useTicketList';
 export default function TicketList() {
-  let { departmentId, setDepartmentId } = useTicketList();
+  let { departmentId } = useTicketList();
   return (
     <React.Fragment>
-      <DepartmentContainer />
+      <DepartmentContainer id="selectedDepartmentId" />
+      <DepartmentContainer id="selectedDepartmentId1" />
       {departmentId ? (
         <TicketListContainer departmentId={departmentId} />
       ) : (

@@ -1,5 +1,7 @@
-export default function DepartmentUIRepo(store) {
-  function setSelectedDepartmentId(departmentId ) {
+
+export default function DepartmentUIRepo(store, id) {
+
+  function setSelectedDepartmentId(departmentId) {
     store.setSelectedDepartment(departmentId);
   }
 
